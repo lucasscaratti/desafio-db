@@ -4,22 +4,20 @@ class CaixaDaLanchonete {
 
     calcularValorDaCompra(metodoDePagamento, itens) {
         return "";
-    }
-
-    
+    }    
 }
 
 console.log('teste');
 
 (async () => {
-    const response = await prompts({
-      type: 'number',
+const metodoDePagamento = await prompts({
+      type: 'text',
       name: 'value',
-      message: 'How old are you?',
-      validate: value => value < 18 ? `Nightclub is 18+ only` : true
+      message: 'Qual a forma de pagamento?',
+      validate: value => value == 'debito' || value == 'credito' || value == 'dinheiro' ? true : `Forma de pagamento inválida!`
     });
   
-    console.log(response); // => { value: 24 }
+    console.log(metodoDePagamento);
   })();
-  
+
 export { CaixaDaLanchonete };
